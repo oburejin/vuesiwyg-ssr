@@ -6,7 +6,7 @@ Vue.use(Vuex);
 
 
 
-// try {console.log('this', 2)} catch (e) {console.log(e)};
+
 
 export default new Vuex.Store({
   strict: process.env.NODE_ENV !== 'production',

@@ -5,7 +5,7 @@ import App from './App.vue';
 
 export default context => {
   let data = context['state'];
-
+  console.log(data)
   return Promise.resolve(
     new Vue({
       propsData: {CONT: data},

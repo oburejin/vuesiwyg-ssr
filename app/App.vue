@@ -15,18 +15,16 @@ import store from './store/store.js';
 export default {
   name: 'app',
   store,
-  props: ['CONT'],
   created: function () {
-    console.log('store:', store.state)    
-    store.commit('set_state', JSON.parse(this.$ssrContext.state));
-    console.log('store:::', store.state)
+    // установка стейта для рендера на сервере
+    // todo: устанавливать стейт до первого рендера
+    if (this.$ssrContext != undefined){
+      console.log(this.$ssrContext)
+      store.commit('set_state', this.$ssrContext.state);
+    }
   },
   data: function () {
-    // try {console.log('this', JSON.parse(this.$ssrContext.state))} catch (e) {console.log(e)};
-    // try {console.log('this.CONT', this.CONT)} catch (e) {console.log(e)};
-    
     return store.state
-    
   },
   components: {
     'Wysiwyg': Wysiwyg
